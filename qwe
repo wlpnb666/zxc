@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>随机点名</title>
+    <style>
+      *{
+        margin:0;
+        padding:0;
+       }
+      body{
+        background-color:black;
+        
+      }
+      .stu{
+        
+        float:left;
+        width:100px;
+        background-color:;
+        text-align:center;
+        color:white;
+        padding:5px 0;
+        margin:10px;
+      }
+      
+      .ck{
+        background-color:green;
+        color:yellow;
+       }
+       .start{
+         position:absolute;
+         top:50%;
+         left:50%;
+         transform:translate(-50%,-50%);
+        }
+    </style>
+  </head>
+  <body>	
+	<button class="start" onclick="start()">开始点名</button>
+    <script>
+       const data = [
+       "王林鹏",
+       "徐宏祥",
+       "魏铂含",
+       "宋佳萌",
+       "玉建程",
+       "张宇畅",
+       "赵天月",
+       "赵梓翔",
+       "杜天宇",
+       "李升航",
+       "张梓硕",
+       "邢杨铭",
+       "邢琳琪",
+       "张轩硕",
+       "崔雪冬",
+       "付梓陌",
+       "张航硕",
+       "魏雨鑫",
+       "魏麒瀚",
+       "宋劭康",
+       "郭瑀珵",
+       "张桂宁",
+       "宋爱轩",
+       "邢淞皓",
+       "王松泰",
+       "刘钊宇",
+       "平佳烨",
+       "李涵钰",
+       "平月盼",
+       "李佳思",
+       "王香玲",
+       "宁钊萌",
+       "宋佳钰",
+       "徐贯宸",
+       "宋子繁",
+       "李和若",
+       "张人慈",
+       "李紫陌",
+       "平艺帆",
+       "杜佳蕊",
+       "李雪苗",
+       "王铭浩",
+       "张祖瑜",
+       "李雨霏",
+       "宋林翔",
+       ]
+       
+       data.forEach(v=>{
+         let stu = document.createElement("div")
+         stu.className = "stu"
+         stu.innerText = v
+         document.body.appendChild(stu)
+       })
+     
+       function start(){
+          let stu = document.querySelectorAll(".stu")
+          let timer = setInterval(()=>{
+            stu.forEach(v=>{
+              v.classList.remove("ck")
+            })
+            stu[Math.floor(Math.random()*stu.length)].classList.add("ck")
+          
+          },200)
+          setTimeout(()=>{
+            clearInterval(timer)
+            
+          },2000);
+       }
+    
+    </script>
+  </body>
+</html>
